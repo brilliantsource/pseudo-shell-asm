@@ -1,0 +1,26 @@
+{
+  "id": "/my_path/pseudo-shell",
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "forcePullImage": true,
+      "image": "$DOCKER_ID_USER/pseudo-shell:2.0",
+      "network": "BRIDGE"
+    }
+  },
+  "cpus": 0.1,
+  "mem": 1,
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "echo 0"
+      },
+      "gracePeriodSeconds": 20,
+      "intervalSeconds": 30,
+      "timeoutSeconds": 5,
+      "maxConsecutiveFailures": 2
+    }
+  ]
+}
